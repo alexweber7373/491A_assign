@@ -1,0 +1,48 @@
+
+<!-- Date -->
+<h1>Pick a Date: </h1>
+<form>
+  <mat-form-field [formGroup]="userData">
+    <mat-label>DatePicker</mat-label>
+    <input matInput [matDatepicker]="myDatepicker" [min]="today" formControlName="userDate">
+    <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </mat-form-field>
+</form>
+
+<!-- Job Title -->
+<h1>Enter your Job Title</h1>
+<form>
+    <mat-form-field [formGroup]="userData">
+    <mat-label>Job Title</mat-label>
+    <input matInput placeholder="ex; Professor" formControlName="userJobTitle">
+    </mat-form-field>
+</form>
+
+<!-- Department -->
+<h1>Select your Department</h1>
+<form>
+  <mat-form-field appearance="fill" [formGroup]="userData">
+      <mat-label>Department</mat-label>
+      <mat-select formControlName="userDepartment">
+          <mat-option *ngFor="let department of departments" [value]="department.value">
+              {{department.viewValue}}
+          </mat-option>
+      </mat-select>
+  </mat-form-field>
+</form>
+
+<!-- Hiring Manager's Name -->
+<h1>Enter your Hiring Manager's Name</h1>
+<mat-form-field [formGroup]="userData">
+    <mat-label>Hiring Manager's Name</mat-label>
+    <input matInput placeholder="ex; Rich Piana" formControlName="userHiringManagerName">
+</mat-form-field>
+
+<!-- Hiring Manager's Email -->
+<h1>Enter your Hiring Manager's Email</h1>
+<mat-form-field [formGroup]="userData">
+    <mat-label>Hiring Manager's Email</mat-label>
+    <input matInput formControlName="userHiringManagerEmail" placeholder="ex; richpiana@24hr.org">
+</mat-form-field>
+
